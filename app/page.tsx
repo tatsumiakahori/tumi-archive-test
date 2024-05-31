@@ -12,7 +12,6 @@ export default function Home() {
   fetchWorks()
     .then((data) => {
       setPosts(data)
-      console.log(data)
     });
   
   return (
