@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { fetchWorks } from "./utils/posts/fetchWorks";
-import { groq } from "next-sanity";
-import { sanityClient } from "@/sanity/config";
 import { Post } from "./types";
 import { useState } from "react";
 
@@ -44,7 +42,7 @@ export default function Home() {
       <div>
         <p>ここに記事のタイトルが出る</p>
         <div>
-          {posts.map((post) => {
+          {posts?.map((post) => {
             return (
               <div key={post._id}>
                 <p>{post.title}</p>
