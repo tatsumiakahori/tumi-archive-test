@@ -1,7 +1,7 @@
 export const Header = () => {
     return (
-        <div>
-            <h1>header</h1>
+        <div className="p-5">
+            <h1>TUMI ARCHIVE(TEST)</h1>
         </div>
     )
 }
