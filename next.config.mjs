@@ -10,8 +10,7 @@ const nextConfig = {
       },
       experimental: {
         taint: true,
-      },
-    output: 'export'
+      }
 };
 
 export default nextConfig;
