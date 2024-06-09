@@ -12,7 +12,6 @@ export default function Post({ post }: {post: SanityDocument}) {
     const { title, body, mainImage } = post
     return (
       <div>
-          <h1>Post</h1>
           <div>
             <h1>{title}</h1>
             {mainImage ? (

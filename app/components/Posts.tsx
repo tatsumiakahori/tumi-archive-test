@@ -14,23 +14,25 @@ const urlFor = (source: any) => imageUrlBuilder({ projectId, dataset }).image(so
 export default function Posts({ posts }: { posts: SanityDocument[] }) {
   return (
     <div>
-      <h1>Posts</h1>
       <hr className="mb-4"/>
-      <ResponsiveMasonry columnsCountBreakPoints={{350: 3, 750: 4, 900: 5}}>
+      <ResponsiveMasonry columnsCountBreakPoints={{350: 2, 750: 3, 900: 5}}>
         <Masonry gutter='18px'>
         {posts?.map((post) => (
               <Link
-                className='card inline-block'
                 key={post._id}
                 href={`posts/${post.slug.current}`}>
-                <div className='card'>
-                  <Image
-                    className="float-left m-0 rounded-lg"
-                    src={urlFor(post.mainImage).auto("format").fit("max").url()}
-                    width={500}
-                    height={500}
-                    alt={post.mainImage.alt || ""}
-                  />
+                <div className='relative h-full'>
+                    <Image
+                      src={urlFor(post.mainImage).auto("format").fit("max").url()}
+                      alt={post.mainImage.alt || ""}
+                      className="object-cover float-left m-0 rounded-lg"
+                      quality={100}
+                      width={500}
+                      height={500}
+                    />
+                  <div className="absolute bottom-0 w-full p-2 rounded-b-lg bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:2px_2px]">
+                    <h2 className="text-xs text-white">{post.slug.current}</h2>
+                  </div>
                 </div>
               </Link>
             ))}

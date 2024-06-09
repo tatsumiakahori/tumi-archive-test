@@ -1,12 +1,13 @@
-import Link from "next/link";
+import { SanityDocument, groq } from 'next-sanity'
+import Posts from '../app/components/Posts'
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Link
-          href={`posts/`}>
-            <h3 className="">Link to Posts</h3>
-        </Link>
-    </main>
-  );
+import { sanityFetch } from "@/app/utils/sanity/fetch"
+import { POSTS_QUERY } from "@/app/utils/sanity/queries"
+  
+export default async function Page() {
+    const posts = await sanityFetch<SanityDocument[]>({
+        query: POSTS_QUERY,
+      })
+    
+    return <Posts posts={posts} />
 }
