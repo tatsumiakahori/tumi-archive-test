@@ -6,10 +6,9 @@ import { SanityDocument } from "next-sanity"
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production"
 
-const urlFor = (source: any) =>
-  imageUrlBuilder({ projectId, dataset }).image(source)
+const urlFor = (source: any) => imageUrlBuilder({ projectId, dataset }).image(source)
 
-export default async function Post({ post }: {post: SanityDocument}) {
+export default function Post({ post }: {post: SanityDocument}) {
     const { title, body, mainImage } = post
     return (
       <div>
